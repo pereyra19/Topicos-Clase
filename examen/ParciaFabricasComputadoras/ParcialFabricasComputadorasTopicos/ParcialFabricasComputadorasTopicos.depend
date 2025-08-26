@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1752532705 source:c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\parcialfabricascomputadorastopicos\main.c
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	"../Comun/Comun.h"
+	"../Cadena/Cadena.h"
+	"../Vector/Vector.h"
+	"../ArchivoTopicos/Archivo.h"
+	"../SolucionParcialFabricasComputadorasTopicos/SolucionParcialFabricasComputadorasTopicos.h"
+
+1752527301 c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\comun\comun.h
+
+1751938251 c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\cadena\cadena.h
+	<stddef.h>
+	<stdbool.h>
+
+1752527304 c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\vector\vector.h
+	<stddef.h>
+	<stdbool.h>
+	"../Comun/Comun.h"
+
+1751938470 c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\archivotopicos\archivo.h
+	<stddef.h>
+
+1751938502 c:\users\perey\onedrive\escritorio\parciafabricascomputadoras\solucionparcialfabricascomputadorastopicos\solucionparcialfabricascomputadorastopicos.h
+

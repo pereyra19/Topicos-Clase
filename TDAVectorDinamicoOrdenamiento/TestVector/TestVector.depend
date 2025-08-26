@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1747178458 source:/home/nestor/UNLaM/Cursadas/2025/1/03-2900/Proyectos/TestVector/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"../TDAVector/Vector.h"
+
+1747178484 /home/nestor/UNLaM/Cursadas/2025/1/03-2900/Proyectos/TDAVector/Vector.h
+	<stdbool.h>
+	<stddef.h>
+

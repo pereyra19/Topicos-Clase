@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1745209571 source:c:\users\perey\onedrive\escritorio\topicos clase\testvector\main.c
+	<stdio.h>
+	<stdlib.h>
+	"..\TDAVector\Vector.h"
+
+1745198238 c:\users\perey\onedrive\escritorio\topicos clase\tdavector\vector.h
+	<stdbool.h>
+	<stddef.h>
+
+1745258582 source:c:\users\perey\onedrive\escritorio\topicosclase\testvector\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../TDAVector/Vector.h"
+
+1745198238 c:\users\perey\onedrive\escritorio\topicosclase\tdavector\vector.h
+	<stdbool.h>
+	<stddef.h>
+
+1745258777 source:c:\users\perey\onedrive\escritorio\hola.c
+	<stdio.h>
+

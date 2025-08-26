@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1752888630 source:c:\users\perey\onedrive\escritorio\2025-07-15_rec_galletitas_entregable\main.c
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	<stdio.h>
+	<SolucionParcialGalletitasTopicos.h>
+
+1752858697 c:\users\perey\onedrive\escritorio\2025-07-15_rec_galletitas_entregable\include\solucionparcialgalletitastopicos.h
+

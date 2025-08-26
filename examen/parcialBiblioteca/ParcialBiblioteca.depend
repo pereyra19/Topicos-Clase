@@ -1,0 +1,110 @@
+# depslib dependency file v1.0
+1751420851 source:c:\users\laboratorios.unlmlab\desktop\topicos\entregable\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<Cadena.h>
+	<Comun.h>
+	<Palabra.h>
+	<SecPal.h>
+	<Vector.h>
+	<Libro.h>
+	<SolucionBiblioteca.h>
+	<ctype.h>
+
+1750423448 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\cadena.h
+	<stddef.h>
+	<stdbool.h>
+
+1751410112 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\comun.h
+
+1750861604 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\palabra.h
+	<stddef.h>
+
+1751317186 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\secpal.h
+	<stdbool.h>
+	<Palabra.h>
+
+1751409796 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\vector.h
+	<stddef.h>
+	<stdbool.h>
+	<Comun.h>
+
+1751129007 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\libro.h
+
+1751410106 c:\users\laboratorios.unlmlab\desktop\topicos\entregable\include\solucionbiblioteca.h
+	<Vector.h>
+
+1751915604 source:c:\users\perey\onedrive\escritorio\parcial\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<Cadena.h>
+	<Comun.h>
+	<Palabra.h>
+	<SecPal.h>
+	<Vector.h>
+	<Libro.h>
+	<SolucionBiblioteca.h>
+	<ctype.h>
+
+1750423450 c:\users\perey\onedrive\escritorio\parcial\include\cadena.h
+	<stddef.h>
+	<stdbool.h>
+
+1751410114 c:\users\perey\onedrive\escritorio\parcial\include\comun.h
+
+1750861606 c:\users\perey\onedrive\escritorio\parcial\include\palabra.h
+	<stddef.h>
+
+1751317188 c:\users\perey\onedrive\escritorio\parcial\include\secpal.h
+	<stdbool.h>
+	<Palabra.h>
+
+1751913659 c:\users\perey\onedrive\escritorio\parcial\include\vector.h
+	<stddef.h>
+	<stdbool.h>
+	<Comun.h>
+
+1751129008 c:\users\perey\onedrive\escritorio\parcial\include\libro.h
+
+1751410108 c:\users\perey\onedrive\escritorio\parcial\include\solucionbiblioteca.h
+	<Vector.h>
+
+1752544470 source:c:\users\perey\onedrive\escritorio\parcialbiblioteca\main.c
+	<stdbool.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<Cadena.h>
+	<Comun.h>
+	<Palabra.h>
+	<SecPal.h>
+	<Vector.h>
+	<Libro.h>
+	<SolucionBiblioteca.h>
+	<ctype.h>
+
+1750423450 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\cadena.h
+	<stddef.h>
+	<stdbool.h>
+
+1752542980 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\comun.h
+
+1750861606 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\palabra.h
+	<stddef.h>
+
+1751317188 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\secpal.h
+	<stdbool.h>
+	<Palabra.h>
+
+1751913659 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\vector.h
+	<stddef.h>
+	<stdbool.h>
+	<Comun.h>
+
+1752534836 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\libro.h
+
+1751410108 c:\users\perey\onedrive\escritorio\parcialbiblioteca\include\solucionbiblioteca.h
+	<Vector.h>
+

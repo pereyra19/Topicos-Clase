@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1745267685 source:c:\users\perey\onedrive\escritorio\topicosclase\string\string.c
+	"String.h"
+
+1745265902 c:\users\perey\onedrive\escritorio\topicosclase\string\string.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
