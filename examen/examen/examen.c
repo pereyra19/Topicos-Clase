@@ -421,17 +421,17 @@ int cmpProducto(const void *a, const void *b)
 //-------------------------------ORDENAMIENTO-----------------------------
 
 // usar el cmp el cual queremos comparar 
-void ordenarBurbujeo(vector* v, Cmp cmp)
+void ordenarBurbujeo(Vector *v, Cmp cmp)
 {
-    void* ult = v->vec + (v->ce - 1) *v->tamElem;
+    void *ult =v->vec + (v->ce-1) *v->tamElem;
 
-    for(void* i = v->vec, *limJ = ult - v->tamElem; i < ult; i+=v->tamElem, limJ-=v->tamElem)
+    for(void *i=v->vec, *limj=ult ; i<ult ; i+=v->tamElem, limj-=v->tamElem)
     {
-        for(void* j = v->vec; j <= limJ; j+=v->tamElem)
+        for(void *j=v->vec; j<limj ; j+=v->tamElem)
         {
-            if(cmp(j,j+v->tamElem)>0)
+            if(cmp(j,j+v->tamElem)<0)
             {
-                intercambiarProducto(j, j+v->tamElem);
+                intercambio(j,j+v->tamElem);
             }
         }
     }
@@ -447,7 +447,7 @@ void intercambiarProducto(void *a , void *b)
     memcpy(b1, a1, sizeof(producto));
     memcpy(a1, &aux, sizeof(producto));
 }
-
+// mal 
 void ordenarSeleccion(vector *v, Cmp cmp)
 {
     void *ult = v->vec + (v->ce -1) * v->tamElem;
@@ -463,7 +463,7 @@ void ordenarSeleccion(vector *v, Cmp cmp)
        
     }    
 }
-
+// mal 
 void *buscarMenor(vector *v, void *pos , Cmp cmp)
 {
     void *ult = v->vec + (v->ce -1) *v->tamElem;
@@ -479,6 +479,41 @@ void *buscarMenor(vector *v, void *pos , Cmp cmp)
 
     return elem;
 }
+// bien 
+
+
+void ordenarSeleccion(Vector *v, Cmp cmp)
+{
+    void *ult =v->vec +(v->ce-1) *v->tamElem;
+    void *m;
+
+    for(void *i=v->vec; i<ult ; i+=v->tamElem)
+    {
+        m = buscarMenor(i,ult,v->tamElem,cmp);
+
+        intercambiar(m,i);
+    }
+
+}
+
+
+void *buscarMenor(void *i,void *ult,size_t tamElem,Cmp cmp)
+{
+    void *m = i;
+
+    for(void *j=i; j<=ult; j+=tamElem)
+    {
+        if(cmp(j,m)<0)
+        {
+            m = j;
+        }
+    }
+    return m;
+}
+
+
+
+
 
 //-------------------------------ITERADOR------------------------------------
 void vectorIteradorCrear(vectorIterador *it, vector *v)

@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1745198259 source:c:\users\perey\onedrive\escritorio\topicosclase\tdavector\vector.c
-	"Vector.h"
-
-1745198238 c:\users\perey\onedrive\escritorio\topicosclase\tdavector\vector.h
-	<stdbool.h>
-	<stddef.h>
-

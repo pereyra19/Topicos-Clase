@@ -3,7 +3,7 @@
 ****************************************************************************************
 * Apellido, Nombres:pereyra roberto
 *
-* DNI:42251380
+* DNI:
 *
 *
 ****************************************************************************************/
@@ -56,7 +56,7 @@ bool redimensionar_ALU(Vector *v, float factor);
 void normalizarChar_ALU(char *s1);
 bool normalizarNombresLibros_ALU(const char *nomArchLibro);
 bool insertarVecOrd_ALU(Vector *v,const void *elem,Cmp cmp,Actualizar actualizar);
-int buscarVecOrd_ALU(Vector *v,void *elem,Cmp cmp);
+int vectorOrdBuscar_ALU(Vector *v, void *elem, Cmp cmp);
 int actualizarArchivoLibros_ALU(const char *nomArchLibro,const char *nomArchIndice,Vector *vecMovs);
 //
 int cmpIndice_ALU(const void* e1, const void* e2);
@@ -89,10 +89,10 @@ int main()
     vectorCrear_ALU(&vecMovs, sizeof(MovLibro));
 	//vectorCrear(&vecMovs, sizeof(MovLibro));
 
-	///Debe generar el vector de movimientos, consolidando los movimientos de los libros, a fin de que quede 1 sólo elemento en el vector por cada libro.
-	///Aumentando o disminuyendo la cantidad según se trate de una devolución o un préstamo respectivamente.
-	///La primitiva vectorOrdInsertar recibe un parámetro adicional, puntero a función Actualizar, para realizar la actualización en caso de que ya exista el elemento.
-	///Puede utilizar las funciones resueltas, pero luego deberá reemplazarlas por su propia versión de las mismas.
+	///Debe generar el vector de movimientos, consolidando los movimientos de los libros, a fin de que quede 1 sï¿½lo elemento en el vector por cada libro.
+	///Aumentando o disminuyendo la cantidad segï¿½n se trate de una devoluciï¿½n o un prï¿½stamo respectivamente.
+	///La primitiva vectorOrdInsertar recibe un parï¿½metro adicional, puntero a funciï¿½n Actualizar, para realizar la actualizaciï¿½n en caso de que ya exista el elemento.
+	///Puede utilizar las funciones resueltas, pero luego deberï¿½ reemplazarlas por su propia versiï¿½n de las mismas.
 	cargarVectorMovimientosLibro_ALU(&vecMovs, NOMBRE_ARCH_MOVIMIENTOS);
 	//cargarVectorMovimientosLibro(&vecMovs, NOMBRE_ARCH_MOVIMIENTOS);
 
@@ -104,17 +104,17 @@ int main()
 	puts("");
 
 	///Debe actualizar el archivo binario de Libros, sumando o restando la cantidad.
-	///La cantidad en el archivo no puede quedar negativa. Si eso sucede, se deberá descartar el movimiento y continuar con el siguiente.
-	///Para acceder a cada registro, debe hacer uso del archivo índice, que tiene cada registro, el código del libro y su ubicación en el archivo(Nro de registro empezando por el 0).
-	///Debe cargar el índice en memoria, para trabajar con él.
+	///La cantidad en el archivo no puede quedar negativa. Si eso sucede, se deberï¿½ descartar el movimiento y continuar con el siguiente.
+	///Para acceder a cada registro, debe hacer uso del archivo ï¿½ndice, que tiene cada registro, el cï¿½digo del libro y su ubicaciï¿½n en el archivo(Nro de registro empezando por el 0).
+	///Debe cargar el ï¿½ndice en memoria, para trabajar con ï¿½l.
 	actualizarArchivoLibros_ALU(NOMBRE_ARCH_LIBROS, NOMBRE_ARCH_LIBROS_INDICE, &vecMovs);
 	//actualizarArchivoLibros(NOMBRE_ARCH_LIBROS, NOMBRE_ARCH_LIBROS_INDICE, &vecMovs);
 
 	puts("");
 
 	///Debe normalizar los nombres de los libros en el archivo.
-	///Dejando sólo 1 espacio entre palabras, sin espacios ni caracteres antes de la primer palábra y después de la última.
-	///Quedando la primer letra de cada palabra en mayúscula y el resto en minúscula.
+	///Dejando sï¿½lo 1 espacio entre palabras, sin espacios ni caracteres antes de la primer palï¿½bra y despuï¿½s de la ï¿½ltima.
+	///Quedando la primer letra de cada palabra en mayï¿½scula y el resto en minï¿½scula.
 	normalizarNombresLibros_ALU(NOMBRE_ARCH_LIBROS);
 	//normalizarNombresLibros(NOMBRE_ARCH_LIBROS);
 
@@ -251,13 +251,13 @@ int actualizarArchivoLibros_ALU(const char *nomArchLibro,const char *nomArchIndi
 
 	IndLibro *act = (IndLibro*)primerVecIterador_ALU(&itInd);
 
-	while(finVecIterador(&itInd))
+	while(!finVecIterador(&itInd))
 	{
 		fseek(archlibro,act->nroReg *sizeof(IndLibro),SEEK_SET);
 		fread(&libro,sizeof(Libro),1,archlibro);
 
 		strcpy(movLibro.codigoLibro,libro.codigo);
-		band = buscarVecOrd_ALU(vecMovs,&movLibro,cmpMovLibro_ALU);
+		band = vectorOrdBuscar_ALU(vecMovs,&movLibro,cmpMovLibro_ALU);
 
 		if(band ==1)
 		{
@@ -279,35 +279,39 @@ int actualizarArchivoLibros_ALU(const char *nomArchLibro,const char *nomArchIndi
 	return TODO_OK;
 }
 
-int buscarVecOrd_ALU(Vector *v,void *elem,Cmp cmp)
+int vectorOrdBuscar_ALU(Vector *v, void *elem, Cmp cmp)
 {
-	if(v->ce ==0)
-		return -1;
+    if (v->ce == 0)
+        return -1;
 
-	const void *li = v->vec;
-	const void *ls = v->vec + (v->ce-1) *v->tamElem;
-	const void *m = li +((ls-li) / v->tamElem / 2) *v->tamElem;
-	int comp = cmp(elem,m);
+    int li = 0;
+    int ls = (int)v->ce - 1;
 
-	while(li<=ls && comp!=0)
-	{
-		if(comp<0)
-			ls = m - v->tamElem;
-		if(comp>0)
-			li = m + v->tamElem;
+    while (li <= ls)
+    {
+        int mid = li + (ls - li) / 2;
+        const void *act = (const char *)v->vec + mid * v->tamElem;
 
-		m = li +((ls-li) / v->tamElem / 2) *v->tamElem;
-		comp = cmp(elem,m);
-	}
+        int c = cmp(elem, act);
 
-	if(comp==0)
-	{
-		memcpy(elem,m,v->tamElem);
-		return 1;
-	}
+        if (c == 0)
+        {
+            memcpy(elem, act, v->tamElem);   // opcional
+            return mid;
+        }
+        else if (c > 0)
+        {
+            li = mid + 1;
+        }
+        else    // c < 0
+        {
+            ls = mid - 1;
+        }
+    }
 
-	return -1;
+    return -1;
 }
+
 
 int cmpIndice_ALU(const void* e1, const void* e2)
 {
