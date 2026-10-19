@@ -1,5 +1,39 @@
 #include "String.h"
 
+#define ES_LETRA(c) (((c) >= 'a' && (c) <= 'z') || ((c) >= 'A' && (c) <= 'Z'))
+#define A_MAYUS(c)  (((c) >= 'a' && (c) <= 'z') ? (c) - ('a' - 'A') : (c))
+#define A_MINUS(c)  (((c) >= 'A' && (c) <= 'Z') ? (c) + ('a' - 'A') : (c))
+
+void normalizar_ALU(const char* ori, char* dest)
+{
+    const char* lec = ori;
+    char* esc = dest;
+
+    while(*lec)
+    {
+        while(*lec && !ES_LETRA(*lec))      /* 1. saltear separadores */
+            lec++;
+
+        if(*lec)                            /* hay una palabra */
+        {
+            if(esc != dest)                 /* 2. no es la primera: un espacio */
+                *esc++ = ' ';
+
+            *esc++ = A_MAYUS(*lec);         /* 3. primera letra en mayúscula */
+            lec++;
+
+            while(ES_LETRA(*lec))           /* 4. resto en minúscula */
+            {
+                *esc++ = A_MINUS(*lec);
+                lec++;
+            }
+        }
+    }
+
+    *esc = '\0';
+}
+
+
 size_t mi_strlen (const char *s)
 {
 	size_t cant = 0;
